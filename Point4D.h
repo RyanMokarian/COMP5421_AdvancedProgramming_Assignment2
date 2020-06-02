@@ -47,9 +47,14 @@ public:
 // 7. Basic arithmetic operators (presented later as free functions)
 // 8. Relational operators (presented later as free functions)
 // 9. Unary operators.
+// +X, -X, unary plus/minus
+    Point4D operator +();
+    Point4D operator -();
+// ++X, --X, pre-increment/decrement
+// X++, X--, post-increment/decrement
 // 10. Subscript operator[] (both const and non-const).
 // 11. Function call operator().
-// 12. Overloaded extraction (input) operator >>
+// 12. Overloaded extraction (input) operator >>  // make an input validation
 // 13. Overloaded insertion (output) operator <<
 // 14. An absoluteValue()
 

@@ -45,22 +45,12 @@ int main()
    Point4D  m1_inverse = m1.inverse();              // inverse, copy ctor
 
    Point4D m1_inverse_times_m1 = m1_inverse * m1;   // Point4D * Point4D
-//   assert(m1_inverse_times_m1 == IDENTITY);         // invariant, must hold //
-// Received false for the above assert
-// m1_inverse_times_m1[0] = 0.99999999999999645
-// m1_inverse_times_m1[1] = 7.1054273576010019e-15
-// m1_inverse_times_m1[2] = 1
-// m1_inverse_times_m1[3] = 0
-// IDENTITY = [1, 0, 1, 0]
-// 1 - 0.99999999999999645 = 3.5527137e-15 which is smaller than the tolerance (1.0E-6)!
-// Also 7.1054273576010019e-15 is smaller than the tolerance
+   assert(m1_inverse_times_m1 == IDENTITY);         // invariant, must hold //
 
+   Point4D m1_times_m1_inverse = m1 * m1_inverse;
+   assert(m1_times_m1_inverse == IDENTITY);         // invariant, must hold
 
-//
-//   Point4D m1_times_m1_inverse = m1 * m1_inverse;
-//   assert(m1_times_m1_inverse == IDENTITY);         // invariant, must hold
-//
-//   assert(+m1 == -(-m1));                           // +Point4D, -Point4D
+   assert(+m1 == -(-m1));                           // +Point4D, -Point4D
 //   Point4D t1 = m1;
 //   ++m1;                                            // ++Point4D
 //   assert(m1 == t1 + 1);

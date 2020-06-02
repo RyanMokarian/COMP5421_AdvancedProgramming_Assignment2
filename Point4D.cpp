@@ -105,6 +105,21 @@ Point4D& Point4D::operator /=(double a)
 // 7. Basic arithmetic operators. (presented later as free functions)
 // 8. Relational operators (presented later as free functions)
 // 9. Unary operators.
+// +X, -X, unary plus/minus
+Point4D Point4D::operator +()
+{
+    return *this;
+}
+Point4D Point4D::operator -()
+{
+    double x1 = -point[0];
+    double x2 = -point[1];
+    double x3 = -point[2];
+    double x4 = -point[3];
+    return Point4D(x1, x2, x3, x4);
+}
+// ++X, --X, pre-increment/decrement
+// X++, X--, post-increment/decrement
 // 10. Subscript operator[] (both const and non-const).
 // 11. Function call operator().
 // 12. Overloaded extraction (input) operator >>
@@ -221,11 +236,12 @@ Point4D operator /(const double a, const Point4D& rhs)
 
 // 8. Relational operators (Point4D op Point4D relational operators)
 // equality
+
 bool operator== (const Point4D& x, const Point4D& y) {
-    return ((x.point[0] == y.point[0]) &&
-            (x.point[1] == y.point[1]) &&
-            (x.point[2] == y.point[2]) &&
-            (x.point[3] == y.point[3]));
+    return (abs((x.point[0] - y.point[0])) < x.getTolerance() &&
+            abs((x.point[1] - y.point[1])) < x.getTolerance() &&
+            abs((x.point[2] - y.point[2])) < x.getTolerance() &&
+            abs((x.point[3] - y.point[3])) < x.getTolerance());
 }
 // X != Y
 // X < Y
