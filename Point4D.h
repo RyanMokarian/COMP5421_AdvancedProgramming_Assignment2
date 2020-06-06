@@ -51,9 +51,11 @@ public:
     Point4D operator +();
     Point4D operator -();
 // ++X, --X, pre-increment/decrement
-    Point4D operator ++();
-    Point4D operator --();
+    Point4D& operator ++();
+    Point4D& operator --();
 // X++, X--, post-increment/decrement
+    Point4D operator ++(int);
+    Point4D operator --(int);
 // 10. Subscript operator[] (both const and non-const).
 // 11. Function call operator().
 // 12. Overloaded extraction (input) operator >>  // make an input validation
