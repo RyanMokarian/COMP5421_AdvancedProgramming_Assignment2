@@ -119,6 +119,22 @@ Point4D Point4D::operator -()
     return Point4D(x1, x2, x3, x4);
 }
 // ++X, --X, pre-increment/decrement
+Point4D Point4D::operator ++()
+{
+    this->point[0] += 1;
+    this->point[1] += 1;
+    this->point[2] += 1;
+    this->point[3] += 1;
+    return *this;
+}
+Point4D Point4D::operator --()
+{
+    this->point[0] -= 1;
+    this->point[1] -= 1;
+    this->point[2] -= 1;
+    this->point[3] -= 1;
+    return *this;
+}
 // X++, X--, post-increment/decrement
 // 10. Subscript operator[] (both const and non-const).
 // 11. Function call operator().

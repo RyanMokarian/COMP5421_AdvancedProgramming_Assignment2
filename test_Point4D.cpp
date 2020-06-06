@@ -51,11 +51,11 @@ int main()
    assert(m1_times_m1_inverse == IDENTITY);         // invariant, must hold
 
    assert(+m1 == -(-m1));                           // +Point4D, -Point4D
-//   Point4D t1 = m1;
-//   ++m1;                                            // ++Point4D
-//   assert(m1 == t1 + 1);
-//   --m1;                                            // --Point4D
-//   assert(m1 == t1);
+   Point4D t1 = m1;
+   ++m1;                                            // ++Point4D
+   assert(m1 == t1 + 1);
+   --m1;                                            // --Point4D
+   assert(m1 == t1);
 //
 //   Point4D m1_post_inc = m1++;                      // Point4D++
 //   assert(m1_post_inc == t1);
