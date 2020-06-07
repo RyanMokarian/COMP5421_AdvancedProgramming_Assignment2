@@ -57,6 +57,8 @@ public:
     Point4D operator ++(int);
     Point4D operator --(int);
 // 10. Subscript operator[] (both const and non-const).
+    double& operator [](unsigned int);
+    const double& operator [](unsigned int) const;
 // 11. Function call operator().
 // 12. Overloaded extraction (input) operator >>  // make an input validation
 // 13. Overloaded insertion (output) operator <<

@@ -149,6 +149,24 @@ Point4D Point4D::operator --(int)
     return temp;
 }
 // 10. Subscript operator[] (both const and non-const).
+    double& Point4D::operator [](unsigned int i)
+{
+    if (i<1||i>4)
+    {
+        throw out_of_range {"index out of bounds"};
+        return point[0];
+    }
+    return point[i-1];
+}
+const double& Point4D::operator [](unsigned int i) const
+{
+    if (i<1||i>4)
+    {
+        throw out_of_range {"index out of bounds"};
+        return point[0];
+    }
+    return point[i-1];
+}
 // 11. Function call operator().
 // 12. Overloaded extraction (input) operator >>
 // 13. Overloaded insertion (output) operator <<

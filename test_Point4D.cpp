@@ -115,13 +115,13 @@ int main()
    Point4D m9(123, 6, 6, 4567.89);
    cout << "m9 = " << m9 << endl;
 
-//   // subscripts (non-const)
-//   m9[1] = 3;
-//   m9[2] = 1;
-//   m9[3] = 7;
-//   m9[4] = 4;
-//   cout << "m9 = " << m9 << endl;
-//   assert(m9 == Point4D(3, 1, 7, 4));
+   // subscripts (non-const)
+   m9[1] = 3;
+   m9[2] = 1;
+   m9[3] = 7;
+   m9[4] = 4;
+   cout << "m9 = " << m9 << endl;
+   assert(m9 == Point4D(3, 1, 7, 4));
 //
 //   // relational operators
 //   double smallTol = Point4D::getTolerance() / 10.0;
