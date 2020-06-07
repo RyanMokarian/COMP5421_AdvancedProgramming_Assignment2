@@ -168,10 +168,10 @@ Point4D Point4D::operator --(int)
     return point[i-1];
 }
 // 11. Function call operator().
-// 12. Overloaded extraction (input) operator >>
-// 13. Overloaded insertion (output) operator <<
+// 12. Overloaded extraction (input) operator >> // make an input validation
+// 13. Overloaded insertion (output) operator << (presented later as friend function)
 // 14. An absoluteValue()
-    double Point4D::absoluteValue()  {
+    double Point4D::absValue()  {
     return (abs(this->point[0]) + abs(this->point[1]) + abs(this->point[2]) + abs(this->point[3]));
 }
 
@@ -196,8 +196,12 @@ Point4D Point4D::inverse() {
 
 //------> friends
 ostream &operator<<( ostream &output, const Point4D &P ) {
-    cout << '[' << P.point[0] << ',' << P.point[1] << ',' << P.point[2] << ',' << P.point[3] << ']';
-    return cout;
+    output << '[' << P.point[0] << ',' << P.point[1] << ',' << P.point[2] << ',' << P.point[3] << ']';
+    return output;
+}
+istream &operator>>( istream &input, Point4D &P ) {
+    input >> P.point[0] >> P.point[1] >> P.point[2] >> P.point[3];
+    return input;
 }
 //------> friends end
 
@@ -302,7 +306,7 @@ bool operator!= (const Point4D& x, const Point4D& y) {
 bool operator< (const Point4D& x, const Point4D& y) {
     Point4D lhs = x;
     Point4D rhs = y;
-    return (x != y) && (lhs.absoluteValue() < rhs.absoluteValue());
+    return (x != y) && (lhs.absValue() < rhs.absValue());
 }
 // X <= Y
 bool operator<= (const Point4D& x, const Point4D& y) {

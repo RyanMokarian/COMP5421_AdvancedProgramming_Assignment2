@@ -169,15 +169,15 @@ int main()
    cout << "m10 = " << m10 << endl;
    assert(m10 == 0.5 * m9);
 
-//   //testing operator>>
-//   Point4D input;
-//
-//   cout << "Please enter the numbers 1.5, 2.5, 3, 4, in that order\n\n";
-//   cin >> input;
-//   cout << "input = " << input << endl;
-//
-//   Point4D diff = input - Point4D(1.5, 2.5, 3, 4);
-//   assert(diff.absValue() <= tol);    // absolute value
+   //testing operator>>
+   Point4D input;
+
+   cout << "Please enter the numbers 1.5, 2.5, 3, 4, in that order\n\n";
+   cin >> input;
+   cout << "input = " << input << endl;
+
+   Point4D diff = input - Point4D(1.5, 2.5, 3, 4);
+   assert(diff.absValue() <= tol);    // absolute value
 //   assert(diff() <= tol);             // function object
 //
 //   cout << "Test completed successfully!" << endl;

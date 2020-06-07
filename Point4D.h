@@ -62,9 +62,9 @@ public:
 // 11. Function call operator().
 
 // 12. Overloaded extraction (input) operator >>  // make an input validation
-// 13. Overloaded insertion (output) operator <<
+// 13. Overloaded insertion (output) operator << (presented later as friend function)
 // 14. An absoluteValue()
-    double absoluteValue();
+    double absValue();
 
 // public facilitators
 // Inversion
@@ -74,6 +74,7 @@ public:
 
 //------> friends
     friend ostream &operator<<(ostream &output, const Point4D &P);
+    friend istream &operator>>(istream &input, Point4D &P);
 //------> friends end
 
 };//---->END OF CLASS
