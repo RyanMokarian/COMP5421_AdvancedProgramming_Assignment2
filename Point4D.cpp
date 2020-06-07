@@ -1,8 +1,10 @@
+#include <cstring>
+#include <cmath>
 #include "Point4D.h"
 #include <iostream>
 #include <cstdlib>
-#include <cstring>
-#include <cmath>
+#include<ios> //used to get stream size
+#include<limits> //used to get numeric limits
 using std::istream;
 using std::ostream;
 using std::cout;
@@ -168,7 +170,11 @@ Point4D Point4D::operator --(int)
     return point[i-1];
 }
 // 11. Function call operator().
-// 12. Overloaded extraction (input) operator >> // make an input validation
+double Point4D::operator ()()
+{
+    return absValue();
+}
+// 12. Overloaded extraction (input) operator >> (presented later as friend function)
 // 13. Overloaded insertion (output) operator << (presented later as friend function)
 // 14. An absoluteValue()
     double Point4D::absValue()  {
@@ -200,7 +206,26 @@ ostream &operator<<( ostream &output, const Point4D &P ) {
     return output;
 }
 istream &operator>>( istream &input, Point4D &P ) {
-    input >> P.point[0] >> P.point[1] >> P.point[2] >> P.point[3];
+    while (! (input >> P.point[0])) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //clear buffer before taking new line
+        cout<<"Invalid entry for x1. Please enter the numbers 1.5, 2.5, 3, 4, in that order"<<endl;
+    }
+    while (! (input >> P.point[1])) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //clear buffer before taking new line
+        cout<<"Invalid entry for x2. Please enter the numbers 2.5, 3, 4, in order for x2, x3 and x4"<<endl;
+    }
+    while (! (input >> P.point[2])) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //clear buffer before taking new line
+        cout<<"Invalid entry for x3. Please enter the numbers 3 and 4 in order for x3 and x4"<<endl;
+    }
+    while (! (input >> P.point[3])) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //clear buffer before taking new line
+        cout<<"Invalid entry for x4. Please enter the number 4 for x4"<<endl;
+    }
     return input;
 }
 //------> friends end

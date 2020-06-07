@@ -5,7 +5,6 @@
 #include <array>
 using namespace std;
 
-
 class Point4D {
 
 //------> private
@@ -60,9 +59,9 @@ public:
     double& operator [](unsigned int);
     const double& operator [](unsigned int) const;
 // 11. Function call operator().
-
-// 12. Overloaded extraction (input) operator >>  // make an input validation
-// 13. Overloaded insertion (output) operator << (presented later as friend function)
+    double operator ()();
+// 12. Overloaded extraction (input) operator >> (presented later as a friend function)
+// 13. Overloaded insertion (output) operator << (presented later as a friend function)
 // 14. An absoluteValue()
     double absValue();
 
