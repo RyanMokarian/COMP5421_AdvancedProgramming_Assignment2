@@ -60,9 +60,11 @@ public:
     double& operator [](unsigned int);
     const double& operator [](unsigned int) const;
 // 11. Function call operator().
+
 // 12. Overloaded extraction (input) operator >>  // make an input validation
 // 13. Overloaded insertion (output) operator <<
 // 14. An absoluteValue()
+    double absoluteValue();
 
 // public facilitators
 // Inversion
@@ -94,12 +96,18 @@ Point4D operator -(const double, const Point4D& rhs);
 Point4D operator *(const double, const Point4D& rhs);
 Point4D operator /(const double, const Point4D& rhs);
 // 8. Relational operators (Point4D op Point4D relational operators)
-bool operator== (const Point4D& x, const Point4D& y); // equality
+// X == Y
+bool operator== (const Point4D& x, const Point4D& y);
 // X != Y
+bool operator!= (const Point4D& x, const Point4D& y);
 // X < Y
+bool operator< (const Point4D& x, const Point4D& y);
 // X <= Y
+bool operator<= (const Point4D& x, const Point4D& y);
 // X > Y
+bool operator> (const Point4D& x, const Point4D& y);
 // X >= Y
+bool operator>= (const Point4D& x, const Point4D& y);
 //------> free functions end
 
 #endif //POINT4D_H

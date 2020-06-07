@@ -158,7 +158,7 @@ Point4D Point4D::operator --(int)
     }
     return point[i-1];
 }
-const double& Point4D::operator [](unsigned int i) const
+    const double& Point4D::operator [](unsigned int i) const
 {
     if (i<1||i>4)
     {
@@ -171,6 +171,9 @@ const double& Point4D::operator [](unsigned int i) const
 // 12. Overloaded extraction (input) operator >>
 // 13. Overloaded insertion (output) operator <<
 // 14. An absoluteValue()
+    double Point4D::absoluteValue()  {
+    return (abs(this->point[0]) + abs(this->point[1]) + abs(this->point[2]) + abs(this->point[3]));
+}
 
 // public facilitators
 // Inversion
@@ -281,8 +284,7 @@ Point4D operator /(const double a, const Point4D& rhs)
 // End of 7. Basic arithmetic operators.
 
 // 8. Relational operators (Point4D op Point4D relational operators)
-// equality
-
+// X == Y
 bool operator== (const Point4D& x, const Point4D& y) {
     return (abs((x.point[0] - y.point[0])) < x.getTolerance() &&
             abs((x.point[1] - y.point[1])) < x.getTolerance() &&
@@ -290,9 +292,29 @@ bool operator== (const Point4D& x, const Point4D& y) {
             abs((x.point[3] - y.point[3])) < x.getTolerance());
 }
 // X != Y
+bool operator!= (const Point4D& x, const Point4D& y) {
+    return (x.point[0] < y.point[0]) &&
+            (x.point[1] < y.point[1]) &&
+            (x.point[2] < y.point[2]) &&
+            (x.point[3] < y.point[3]);
+}
 // X < Y
+bool operator< (const Point4D& x, const Point4D& y) {
+    Point4D lhs = x;
+    Point4D rhs = y;
+    return (x != y) && (lhs.absoluteValue() < rhs.absoluteValue());
+}
 // X <= Y
+bool operator<= (const Point4D& x, const Point4D& y) {
+    return (x == y) || (x < y);
+}
 // X > Y
+bool operator> (const Point4D& x, const Point4D& y) {
+    return ( y < x);
+}
 // X >= Y
+bool operator>= (const Point4D& x, const Point4D& y) {
+    return (x == y) || (x > y);
+}
 // End of 8. Relational operators
 //------> free functions end

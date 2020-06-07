@@ -122,53 +122,53 @@ int main()
    m9[4] = 4;
    cout << "m9 = " << m9 << endl;
    assert(m9 == Point4D(3, 1, 7, 4));
-//
-//   // relational operators
-//   double smallTol = Point4D::getTolerance() / 10.0;
-//   Point4D m9Neighbor(3 - smallTol, 1 + smallTol, 7 - smallTol, 4 + smallTol);
-//   assert(m9 == m9Neighbor);
-//
-//   double tol = Point4D::getTolerance();
-//   assert(m9 != (m9 + tol));
-//   assert(m9 != (m9 + 0.25 * tol));
-//   assert(m9 == (m9 + 0.15 * tol));
-//   assert(m9 == m9);
-//
-//   assert(m9 < (m9 + 0.001));
-//   assert(m9 <= (m9 + 0.001));
-//   assert((m9 + 0.001) <= (m9 + 0.001));
-//
-//   assert((m9 + 0.001) > m9);
-//   assert((m9 + 0.001) >= m9);
-//   assert((m9 + 0.001) >= (m9 + 0.001));
-//
-//   // compound operators
-//
-//   m9 += m9;
-//   cout << "m9 = " << m9 << endl;
-//   assert(m9 == 2 * Point4D(3, 1, 7, 4));
-//
-//   Point4D m10;
-//   m10 += (m9 / 2);
-//   cout << "m10 = " << m10 << endl;
-//   assert(m10 == Point4D(3, 1, 7, 4));
-//
-//   m10 *= 2;
-//   cout << "m10 = " << m10 << endl;
-//   assert(m10 == m9);
-//
-//   m10 /= 2;
-//   cout << "m10 = " << m10 << endl;
-//   assert(m10 == m9/2);
-//
-//   m10 += 10;
-//   cout << "m10 = " << m10 << endl;
-//   assert(m10 == (m9 +20) / 2);
-//
-//   m10 -= 10;
-//   cout << "m10 = " << m10 << endl;
-//   assert(m10 == 0.5 * m9);
-//
+
+   // relational operators
+   double smallTol = Point4D::getTolerance() / 10.0;
+   Point4D m9Neighbor(3 - smallTol, 1 + smallTol, 7 - smallTol, 4 + smallTol);
+   assert(m9 == m9Neighbor);
+
+   double tol = Point4D::getTolerance();
+   assert(m9 != (m9 + tol));
+   assert(m9 != (m9 + 0.25 * tol));
+   assert(m9 == (m9 + 0.15 * tol));
+   assert(m9 == m9);
+
+   assert(m9 < (m9 + 0.001));
+   assert(m9 <= (m9 + 0.001));
+   assert((m9 + 0.001) <= (m9 + 0.001));
+
+   assert((m9 + 0.001) > m9);
+   assert((m9 + 0.001) >= m9);
+   assert((m9 + 0.001) >= (m9 + 0.001));
+
+   // compound operators
+
+   m9 += m9;
+   cout << "m9 = " << m9 << endl;
+   assert(m9 == 2 * Point4D(3, 1, 7, 4));
+
+   Point4D m10;
+   m10 += (m9 / 2);
+   cout << "m10 = " << m10 << endl;
+   assert(m10 == Point4D(3, 1, 7, 4));
+
+   m10 *= 2;
+   cout << "m10 = " << m10 << endl;
+   assert(m10 == m9);
+
+   m10 /= 2;
+   cout << "m10 = " << m10 << endl;
+   assert(m10 == m9/2);
+
+   m10 += 10;
+   cout << "m10 = " << m10 << endl;
+   assert(m10 == (m9 +20) / 2);
+
+   m10 -= 10;
+   cout << "m10 = " << m10 << endl;
+   assert(m10 == 0.5 * m9);
+
 //   //testing operator>>
 //   Point4D input;
 //
